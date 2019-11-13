@@ -7,7 +7,8 @@ graph = {'A': {'B':8,'D':7,'C':3},
 induk = input("Masukan induk kota = ")
 induk = induk.upper()
 tambah = graph[induk[0]][induk[1]] + graph[induk[1]][induk[2]] + graph[induk[2]][induk[3]]
-
+print(f"nilai induk adalah = {tambah}")
+print("")
 
 def short_graph (graph,induk,hitung,path = [], pathHitung = {}) :
     while True:
@@ -51,13 +52,16 @@ def short_graph (graph,induk,hitung,path = [], pathHitung = {}) :
         for var in pathHitung.keys():
             if (hitung<pathHitung[var]):
                 tambah +=1
-                print(pathHitung)
                 if tambah==6:
+                    print(pathHitung)
                     return induk
                 continue
             elif (hitung>pathHitung[var]):
+                print(pathHitung)
+                print(f"induk berikutnya adalah = {var}")
+                print("")
                 hitung = pathHitung[var]
                 induk = var
                 break
         # return None
-print(short_graph(graph,induk,tambah))
+print(f"jalur terpendek adalah = {short_graph(graph,induk,tambah)}")
